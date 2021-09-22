@@ -10,15 +10,21 @@
 
     </nav>
   </header>
-  <body>  
+  <body>
     
     <p id="json">     
     </p>
    
     <script>
-      var json = document.getElementById("json");
-      var obj = {"objects":[{"key":"work-id:1","content":"some-error-content"},{"key":"work-id:2","content":"some-error-content"}]};
-      json.innerHTML = JSON.stringify(obj, undefined, 4);
+      var xhttp = new XMLHttpRequest();
+      xhttp.setRequestHeader("Content-Type", "application/json");
+      
+      xhttp.onload = function() {
+        var json = document.getElementById("json");
+        var obj = {"objects":[{"key":"work-id:1","content":"some-error-content"},{"key":"work-id:2","content":"some-error-content"}]};
+        json.innerHTML = JSON.stringify(obj, undefined, 4);
+      }       
+      
     </script>
   </body>
 </html>
